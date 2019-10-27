@@ -26,7 +26,7 @@ function ModalContainer($timeout, $rootScope, $compile, ModalService, SliderServ
         $scope.closeButtonClicked = closeButtonClicked;
 
         var templateScope;
-        var iconPath = require('ushahidi-platform-pattern-library/assets/img/iconic-sprite.svg');
+        var iconPath = require('radardasaude-platform-pattern-library/assets/img/iconic-sprite.svg');
         // Modal content element
         var modalContent = $element.find('modal-content');
 

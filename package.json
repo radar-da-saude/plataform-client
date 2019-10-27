@@ -26,6 +26,7 @@
     "jscs"
   ],
   "devDependencies": {
+    "@uirouter/visualizer": "^5.0.0",
     "angular-mocks": "^1.5.6",
     "babel-core": "^6.7.7",
     "babel-loader": "^7.0.0",
@@ -38,12 +39,12 @@
     "babel-runtime": "^6.6.1",
     "browser-sync": "^2.11.1",
     "connect-history-api-fallback": "^1.1.0",
+    "copy-webpack-plugin": "^4.6.0",
     "css-loader": "^0.28.0",
     "del": "^2.2.0",
     "dotenv": "^4.0.0",
     "eslint": "^3.4.0",
     "extract-text-webpack-plugin": "^2.1.0",
-    "web-app-manifest-loader": "0.1.1",
     "file-loader": "^0.11.1",
     "fs-walk": "0.0.1",
     "gulp": "^3.9.0",
@@ -85,10 +86,10 @@
     "svg-url-loader": "^2.0.2",
     "transifex": "^1.4.4",
     "url-loader": "^0.5.7",
+    "web-app-manifest-loader": "0.1.1",
     "webpack": "^2.4.1",
     "webpack-dev-middleware": "^1.6.1",
-    "webpack-hot-middleware": "^2.6.0",
-    "@uirouter/visualizer": "^5.0.0"
+    "webpack-hot-middleware": "^2.6.0"
   },
   "dependencies": {
     "@uirouter/angularjs": "^1.0.10",
@@ -123,7 +124,7 @@
     "socket.io-client": "2.0.3",
     "sortablejs": "^1.7.0",
     "underscore": "^1.7.0",
-    "ushahidi-platform-pattern-library": "^3.12.3"
+    "radardasaude-platform-pattern-library": "3.12.2-3"
   },
   "engines": {
     "node": ">=4.0"

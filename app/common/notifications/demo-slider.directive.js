@@ -29,7 +29,7 @@ function DemoSlider($compile, DemoSliderService, $rootScope, $transitions) {
         });
 
         var templateScope;
-        var iconPath = require('ushahidi-platform-pattern-library/assets/img/iconic-sprite.svg');
+        var iconPath = require('radardasaude-platform-pattern-library/assets/img/iconic-sprite.svg');
         // content element
         var demoSliderContent = $element.find('demo-slider-content');
 

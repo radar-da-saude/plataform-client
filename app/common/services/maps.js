@@ -130,7 +130,7 @@ function Maps(ConfigEndpoint, L, _, CONST) {
         // Test string to make sure that it does not contain injection
         color = (color && /^[a-zA-Z0-9#]+$/.test(color)) ? color : '#959595';
         size = size || [32, 32];
-        var iconicSprite = require('ushahidi-platform-pattern-library/assets/img/iconic-sprite.svg');
+        var iconicSprite = require('radardasaude-platform-pattern-library/assets/img/iconic-sprite.svg');
 
         return L.divIcon({
             className: 'custom-map-marker ' + className,

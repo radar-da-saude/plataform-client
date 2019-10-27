@@ -4,21 +4,46 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+
         <script src="/config.js"></script>
 
-        <title ng-bind-template="{{pageTitle}} {{siteTitle}}"></title>
-        <meta name="description" ng-attr-content="{{pageDescription}}">
-        <meta name="keywords" ng-attr-content="{{pageKeywords}}">
-        <meta name="robots" ng-attr-content="{{pageRobots}}">
-
-        <meta name="apple-itunes-app" content="app-id={{appStoreId}}, app-argument={{currentFullUrl}}>">
-
-        <link rel="manifest" href="/manifest.json">
+        <title ng-bind-template="Radar da Saúde"></title>
+        <meta name="description" ng-attr-content="O Radar da Saúde é uma central de denúncias sobre a saúde, fornecendo indicadores sobre a eficiência do setor.">
+        <meta name="keywords" ng-attr-content="radar da saúde, chega de descaso, denúncia">
+        <meta name="robots" content="index, follow">
+        <meta name="google" content="notranslate">
+        <link rel="canonical" href="http://radardasaude.com.br/" />
+        <meta property="og:locale" content="pt_BR" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Radar da Saúde" />
+        <meta property="og:description" content="O Radar da Saúde é uma central de denúncias sobre a saúde, fornecendo indicadores sobre a eficiência do setor." />
+        <meta property="og:url" content="http://radardasaude.com.br" />
+        <meta property="og:site_name" content="Radar da Saúde" />
+        <meta property="og:image" content="http://radardasaude.com.br/customFiles/iconeRadarDaSaude.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:description" content="O Radar da Saúde é uma central de denúncias sobre a saúde, fornecendo indicadores sobre a eficiência do setor." />
+        <meta name="twitter:title" content="Radar da Saúde" />
+        <meta name="twitter:image" content="http://radardasaude.com.br/customFiles/iconeRadarDaSaude.png" />
 
         <base href="/">
+
+        <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-5VV3254');</script>
+        <!-- End Google Tag Manager -->
+
     </head>
     <!-- TODO: set layouts per view directive -->
     <body ng-class="{ 'rtl-namespace' : rtlEnabled, 'ltr-namespace' : !rtlEnabled, 'modal-visible': modalVisible, 'demo-visible' : demoBarVisible }" class="{{ globalLayout }} ltr-namespace" canvas>
+    
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5VV3254"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+
         <div id="bootstrap-loading">
             <!-- loading the document -->
             <div class="loading">

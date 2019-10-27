@@ -26,8 +26,8 @@ require('./settings/settings.module.js');
 import ravenModule from './common/raven/raven';
 
 // Load platform-pattern-library CSS
-require('ushahidi-platform-pattern-library/assets/fonts/Lato/css/fonts.css');
-require('ushahidi-platform-pattern-library/assets/css/style.min.css');
+require('radardasaude-platform-pattern-library/assets/fonts/Lato/css/fonts.css');
+require('radardasaude-platform-pattern-library/assets/css/style.min.css');
 require('../sass/vendor.scss');
 
 // Make sure we have a window.ushahidi object
@@ -156,12 +156,18 @@ angular.module('app',
     // }])
     .run(['$rootScope', 'LoadingProgress', '$transitions', '$uiRouter', function ($rootScope, LoadingProgress, $transitions, $uiRouter) {
         // this handles the loading-state app-wide
+        window.shouldGaTrack = 0;
         LoadingProgress.watchTransitions();
-        if (window.ushahidi.gaEnabled) {
             $transitions.onSuccess({}, function (transition) {
-                window.ga('send', 'pageview',  $uiRouter.urlRouter.location);
+                //window.ga('send', 'pageview',  $uiRouter.urlRouter.location);
+                if(window.shouldGaTrack > 0){
+                    dataLayer.push({
+                     'event': 'customPageView',
+                     'pagePath': $uiRouter.urlRouter.location
+                     });
+                }
+                window.shouldGaTrack++;
             });
-        }
     }])
     .run(['DemoDeploymentService', function (DemoDeploymentService) {
         angular.element(document.getElementById('bootstrap-app')).removeClass('hidden');

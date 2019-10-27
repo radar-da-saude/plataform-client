@@ -1,7 +1,7 @@
 module.exports = Notify;
 
 var scope;
-var iconicSprite = require('ushahidi-platform-pattern-library/assets/img/iconic-sprite.svg');
+var iconicSprite = require('radardasaude-platform-pattern-library/assets/img/iconic-sprite.svg');
 Notify.$inject = ['_', '$q', '$rootScope', '$translate', 'SliderService', 'ModalService', 'DemoSliderService'];
 function Notify(_, $q, $rootScope, $translate, SliderService, ModalService, DemoSliderService) {
     return {

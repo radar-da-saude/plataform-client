@@ -2,8 +2,9 @@ var path    = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 
-var imgPath = path.resolve('node_modules/ushahidi-platform-pattern-library/assets/');
+var imgPath = path.resolve('node_modules/radardasaude-platform-pattern-library/assets/');
 
 var extractCss = new ExtractTextPlugin('[name].[chunkhash].css');
 
@@ -111,6 +112,11 @@ module.exports = {
       hash: false
     }),
 
+    //get customFiles folder and make them available for the build
+    new CopyWebpackPlugin([
+        {from:'app/customFiles',to:'customFiles'} 
+    ], { logLevel: 'debug' }),
+
     // Automatically move all modules defined outside of application directory and pattern library
     // to vendor bundle. If you are using more complicated project structure, consider to specify
     // common chunks manually.
@@ -119,7 +125,7 @@ module.exports = {
       minChunks: function (module, count) {
         return module.resource &&
             !module.resource.includes(path.resolve(__dirname, 'app')) &&
-            !module.resource.includes('ushahidi-platform-pattern-library') &&
+            !module.resource.includes('radardasaude-platform-pattern-library') &&
             !module.resource.includes('style-loader') &&
             !module.resource.includes('css-loader');
       }

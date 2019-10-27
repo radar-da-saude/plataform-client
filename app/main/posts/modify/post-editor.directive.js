@@ -274,17 +274,32 @@ function PostEditorController(
                 request = PostEndpoint.save(post);
             }
             request.$promise.then(function (response) {
-                var success_message = (response.status && response.status === 'published') ? 'notify.post.save_success' : 'notify.post.save_success_review';
+                var success_message = (response.status && response.status === 'published') ? 'Obrigado, sua reclamação foi enviada. A identificação da sua reclamação é: *** '+ $scope.post.title + ' ***. Guarde esse nome caso precise entrar em contato com o Movimento Chega de Descaso.' : '"Obrigado, sua reclamação foi enviada. Assim que passar pela moderação, ela será publicada. A identificação da sua reclamação é: *** '+ $scope.post.title + ' ***. Guarde esse nome caso precise entrar em contato com o Movimento Chega de Descaso."';
 
                 if (response.id && response.allowed_privileges.indexOf('read') !== -1) {
                     $scope.saving_post = false;
                     $scope.post.id = response.id;
-                    Notify.notify(success_message, { name: $scope.post.title });
+                    Notify.notifyPermanent(success_message, { name: $scope.post.title });
                     $state.go('posts.data.detail', {postId: response.id});
                 } else {
-                    Notify.notify(success_message, { name: $scope.post.title });
+                    Notify.notifyPermanent(success_message, { name: $scope.post.title });
                     $state.go('posts.map.all');
+                    //
+                    var theForm = JSON.parse(JSON.stringify($scope.post.form));
+                    dataLayer.push({
+                     'event': 'reclamacao',
+                     'conteudoRaw': $scope.post,
+                     'conteudoForm': theForm,
+                     'reclamacaoTitle': $scope.post.title,
+                     'reclamacaoTipo': theForm.name
+                     });
+                    //
+                    dataLayer.push({
+                     'event': 'customPageView',
+                     'pagePath': '/reclamacao/'+theForm.name
+                     });
                 }
+
             }, function (errorResponse) { // errors
                 var validationErrors = [];
                 // @todo refactor limit handling
